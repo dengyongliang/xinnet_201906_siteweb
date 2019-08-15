@@ -208,14 +208,19 @@ body{
   background: #f8f8f8;
   padding: 30px 0px;
 }
-
+.section_02>.t{
+  padding-top: 70px;
+  margin-bottom: 40px;
+  font-size: 24px;
+}
 .section_02 ul{
   width: 1140px;
   margin: 0 auto;
 }
 .section_02 ul li{
   float: left;
-  width: 360px;
+  width: 265px;
+  height: 502px;
   margin: 0 10px;
   background: #fff;
   border-radius: 5px;
@@ -225,7 +230,7 @@ body{
   box-shadow:0px 0px 5px rgba(0,0,0,0.1);
 }
 .section_02 ul li .t{
-  padding: 30px 0;
+  padding: 30px 0 10px 0;
   text-align: center;
 }
 .section_02 ul li .t strong{
@@ -238,17 +243,18 @@ body{
   color: #999;
 }
 .section_02 ul li .c{
-  padding: 0 20px;
+  padding: 0 15px;
   text-align: left;
   padding-bottom: 230px;
   background: url(../img/temp/img_02.png) no-repeat 50% 100%;
+  background-size: 100% 190px;
   position: relative;
 }
 .section_02 ul li .c .list{
-  height: 405px;
+  height: 202px;
 }
 .section_02 ul li .c .list div{
-  line-height: 30px;
+  line-height: 24px;
   color: #666666;
   font-size: 12px;
 }
@@ -312,6 +318,7 @@ body{
   height: 20px;
   line-height: 20px;
   vertical-align: middle;
+  text-align: center;
 }
 .section_02 ul li .c .bt p a{
   color: #fff;
@@ -320,15 +327,64 @@ body{
   vertical-align: middle;
 }
 .section_02 ul li .c .bt p a.l{
-  float: left;
+  /* float: left; */
 }
 .section_02 ul li .c .bt p a.r{
   float: right;
   text-decoration: underline;
 }
+.section_02 ul li.free{
+  background: url(../img/temp/img_21.png) no-repeat 50% 50%;
+}
+.section_02 ul li.free .t strong{
+  color: #fff;
+}
+.section_02 ul li.free .c{
+  background: none;
+  height: 112px;
+}
+.section_02 ul li.free .c .list div{
+  color: #fff;
+}
+.section_02 ul li.free .c .list div:before{
+  color: #ffe400;
+}
+.section_02 ul li.free .c .list{
+  margin-top: 90px;
+  height: auto;
+  padding-left: 70px;
+}
+.section_02 ul li.free .c .bt .buy{
+  background: #ffe400;
+}
+.section_02 .table{
+  width: 1120px;
+  margin: 0 auto;
+}
+.section_02 .table table{
+  width: 100%;
+  background: #fff;
+  font-size: 12px;
+}
+.section_02 .table td{
+  width: 25%;
+  border: 1px solid #eeeef2;
+  height: 55px;
+  padding: 0 10px;
+}
+.section_02 .table th{
+  height: 70px;
+  background: #ebf1fc;
+  font-weight: normal;
+  padding: 0 10px;
+}
+.section_02 .table .col1{
+  text-align: left;
+}
 .section_03{
   height: 200px;
   background: url(../img/temp/img_04.png) no-repeat 50% 50%;
+  margin-bottom: 20px;
 }
 .section_03 a{
   display: block;
@@ -397,6 +453,20 @@ body{
 }
 .section_05 .c li img{
   width: 100%;
+}
+.section_05 .c li.more{
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d286fd+0,ba71fe+48,9f5aff+100;Blue+3D+%2313 */
+background: rgb(210,134,253); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(210,134,253,1) 0%, rgba(186,113,254,1) 48%, rgba(159,90,255,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(210,134,253,1) 0%,rgba(186,113,254,1) 48%,rgba(159,90,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(210,134,253,1) 0%,rgba(186,113,254,1) 48%,rgba(159,90,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d286fd', endColorstr='#9f5aff',GradientType=1 ); /* IE6-9 */
+
+}
+.section_05 .c li.more a{
+  display: block;
+  line-height: 198px;
+  color: #fff;
 }
 .section_06{
   text-align: center;

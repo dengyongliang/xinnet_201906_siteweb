@@ -260,7 +260,7 @@ body{
 }
 .section_02 ul li{
   float: left;
-  width: 360px;
+  width: 550px;
   margin: 0 10px;
   background: #fff;
   border-radius: 5px;
@@ -272,6 +272,7 @@ body{
 .section_02 ul li .t{
   height: 89px;
   background: url(../img/customized/img_02.png) no-repeat 50% 50%;
+  background-size: 100% 100%;
   text-align: center;
 }
 .section_02 ul li .t strong{
@@ -336,20 +337,27 @@ body{
 .section_02 .table table{
   width: 100%;
   background: #fff;
+  font-size: 12px;
 }
 .section_02 .table td{
-  width: 20%;
-  border: 1px solid #eeeef2;
+  width: 10.5%;
+  border-bottom: 1px solid #eeeef2;
   height: 55px;
+  padding: 0 10px;
 }
 .section_02 .table th{
   height: 70px;
   background: #ebf1fc;
   font-weight: normal;
+  padding: 0 10px;
 }
 .section_02 .table .col1{
+  width: 16%;
   text-align: left;
-  padding-left: 30px;
+  border-right: 1px solid #eeeef2;
+}
+.section_02 .table .col4{
+  border-right: 1px solid #eeeef2;
 }
 .section_03{
   height: 552px;
