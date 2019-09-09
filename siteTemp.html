@@ -1,10 +1,3 @@
-<!--
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-06-25 10:39:50
- * @LastEditTime: 2019-08-28 13:48:55
- * @LastEditors: Please set LastEditors
- -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://imgi.xinnet.com/www/zt/2018Y1012mail/css/pullNew_mail.css">
     <link rel="stylesheet" href="./css/siteTemp.css">
   </head>
   <body>
@@ -37,7 +31,7 @@
                   <sup>￥</sup>0 <span>/年</span>
                 </div>
                 <div class="btn">
-                  <a href="http://www.xinnet.com/jianzhan/jianzhan-buy-detail.html?name=zzjz&type=free" target="_blank" class="buy">立即体验</a>
+                  <a href="javascript:;" dataCode="B201909092407" id="bugZero" class="buy">立即体验</a>
                 </div>
                 <p class="clear">
                   <a href="https://im.7x24cc.com/phone_webChat.html?accountId=N000000014613&chatId=816becd7-7ba1-4bf7-9883-9869fd3bcf48" target="_blank" class="l">
@@ -401,5 +395,103 @@
         </div>
       </div>
     </div>
+    <!-- tc -->
+    <div class = "bgw_tc1" id = "tc_anniv" style = "display:none">
+        <div class = "xg_tc">
+          <div>
+            <div class = "top_header1">
+              <h3>提示</h3>
+              <a class = "tc_cha" id = "tc_cha" href = "javascript:;">×</a>
+            </div>
+            <div class = "tc_content1">
+              <p id = "tc_annivP"></p>
+            </div>
+            <div class = "tc_bottom1">
+              <div>
+                <a href="javascript:void(0);" id = "tc_sure">确定</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end -->
+    <!-- <script src="http://imgi.xinnet.com/www/newjavascript/jquery.js"></script> -->
+    <script>
+    // var loginId = 'notLogin'
+		//立即领取01
+		$("#bugZero").click(function(){
+			if(loginId!="notLogin"){
+				var dataCode = $(this).attr("dataCode");
+				getCoupon(dataCode);
+			}
+			else{
+        bgw_tc("请先登录新网账号，再申请免费版！<br /><br /><a href = 'https://login.xinnet.com/?service=http://www.xinnet.com/jianzhan/zizhujianzhan.html' target = '_blank'>立即登录</a>  <a href = 'http://www.xinnet.com/user/user.do?method=toRegister' target = '_blank'>新用户免费注册</a>");
+				// window.open("http://www.xinnet.com/user/user.do?method=toRegister", "_blank");
+			}
+		});
+    function getCoupon(dataCode){
+      $.ajax({
+        url:"http://www.xinnet.com/usercenter/user.do?method=bindMultipleDiscount",
+        type:"post",
+        data:{
+          "activeCodes":dataCode,
+          "activeType":"o"
+        },
+        async:false,
+        success:function(result){
+          var rescode,linkurl;
+          if (result.indexOf("|")) {
+                    var resarr = result.split("|");
+
+                    linkurl = resarr[1];
+                    rescode = resarr[0];
+          } else {
+                    rescode = result;
+
+          }
+          switch(rescode){
+            //领取成功
+            case "0":
+              bgw_tc("恭喜您，已成功领取免费版试用资格！请完成0元订单后开启您的自助建站之旅。<a href = 'http://www.xinnet.com/jianzhan/jianzhan-buy-detail.html?name=zzjz&type=free' target = '_blank'>前往完成0元订单</a>");
+              break;
+            //活动已结束
+            case "1":
+              bgw_tc("活动已结束！", "确定", "javascript:;");
+              break;
+            //已领光
+            // case "3":
+            // 	bgw_tc("很抱歉，今日体验资格已抢光！每天零点准时开始哦~", "确定", "javascript:;");
+            // 	break;
+            //只有新用户才能领取
+            case "2":
+              bgw_tc("很抱歉，此活动为新注册用户专享！", "确定", "javascript:;");
+              break;
+            //重复领券
+            case "4":
+              bgw_tc("您已领取免费版试用资格！同一用户不可重复申请，如尚未完成0元订单，请前往完成0元订单后开启免费建站业务，<a href = 'http://www.xinnet.com/jianzhan/jianzhan-buy-detail.html?name=zzjz&type=free' target = '_blank'>前往完成0元订单</a>");
+              break;
+            //绑定出错
+            case "9":
+              bgw_tc("很抱歉，领券失败！", "确定", "javascript:;");
+              break;
+          }
+        }
+      });
+    }
+    function bgw_tc(txt, btn, url){
+      $("#tc_annivP").html(txt);
+      $("#tc_anniv").fadeIn(200);
+      $("#tc_sure").html(btn).attr("href", url);
+      if(url.indexOf("javascript:") == -1){
+        $("#tc_sure").attr("target", "_blank");
+      }
+      else{
+        $("#tc_sure").removeAttr("target");
+      }
+    }
+		$("#tc_sure,#tc_cha").click(function(){
+		  $("#tc_anniv").fadeOut(100);
+		})
+    </script>
   </body>
 </html>
